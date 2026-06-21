@@ -4,10 +4,6 @@ A Reigns-like tavern management game built with **C#** and **.NET 10**. You play
 the innkeeper of the *Tipsy Goblin*, a tavern in the rough part of town, and try
 to keep the doors open for 90 days.
 
-<p align="center">
-  <em>Balance the books. Pour the beer. Don't get shut down.</em>
-</p>
-
 ---
 
 ## How it plays
@@ -20,7 +16,7 @@ Each round a character walks into the tavern with a request. You swipe the card
 | **Gold** | The coin in your register |
 | **Stock** | Your reserves of beer and meat |
 | **Reputation** | How much the locals love the place |
-| **Authority** | How much the town guard tolerates you |
+| **Authority** | How much the town authority tolerates you |
 
 Let any meter hit its ceiling or its floor and your run is over. Balance them
 long enough to outlast the season and you win. It's a game of tight trade-offs
@@ -38,7 +34,3 @@ where no choice is ever free.
 dotnet build -c Release
 dotnet run --project tavern-toll -c Release
 ```
-
-> Requires the **.NET 10 SDK**.
-
-Sound and background music can be toggled from the options menu in-game.

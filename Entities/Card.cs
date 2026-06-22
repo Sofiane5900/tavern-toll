@@ -3,13 +3,13 @@ using Raylib_cs;
 class Card
 {
     private string _name;
-    private Image _avatar;
+    private Texture2D _avatar;
     private string _text = string.Empty;
     private int[] _leftImpacts = new int[4];
     private int[] _rightImpacts = new int[4];
 
 
-    public Card(string name, Image avatar, string text, int[] leftImpacts,
+    public Card(string name, Texture2D avatar, string text, int[] leftImpacts,
     int[] rightImpacts)
     {
         _name = name;
@@ -22,7 +22,7 @@ class Card
 
     public string Name => _name;
 
-    public Image Avatar => _avatar;
+    public Texture2D Avatar => _avatar;
 
     public string Text
     {

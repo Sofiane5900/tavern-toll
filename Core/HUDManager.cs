@@ -1,7 +1,9 @@
+using System.Numerics;
 using Raylib_cs;
 
-class UIManager
+class HUDManager
 {
+
 
     public void DisplayBars(GameState gameState, int screenWidth)
     {
@@ -32,5 +34,24 @@ class UIManager
             if (i < totalBars.Count() - 1) cursor += totalBars[i] + spaceInBetween;
         }
 
+    }
+
+    public void DisplayCard(GameState gameState, int screenWidth, int screenHeight)
+    {
+
+        // First, define how much of the Texture to draw (in our case, total width & height)
+        Rectangle cardRectangle = new(0, 0, gameState.CurrentCard.Avatar.Width,
+     gameState.CurrentCard.Avatar.Height);
+
+        // Second, define where we want to draw on screen and which size the Texture will take.
+        Rectangle screen = new(screenWidth / 2, screenHeight / 2, 250, 250);
+
+        // Third, define the anchor (origin)
+        // to be in center of our Texture size (contained in screen)
+        Vector2 cardCenter = new(screen.Width / 2,
+       screen.Height / 2);
+
+        Raylib.DrawTexturePro(gameState.CurrentCard.Avatar, cardRectangle, screen,
+        cardCenter, 0, Color.White);
     }
 }

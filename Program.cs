@@ -20,11 +20,10 @@ internal static class Program
             Raylib.ClearBackground(Color.Brown);
 
             GameState gameState = new();
-            UIManager uiManager = new();
+            HUDManager hudManager = new();
 
-            uiManager.DisplayBars(gameState, screenWidth);
-
-            Raylib.DrawText("Hello, world!", 12, 12, 20, Color.Black);
+            hudManager.DisplayBars(gameState, screenWidth);
+            hudManager.DisplayCard(gameState, screenWidth, screenHeight);
 
             Raylib.EndDrawing();
         }

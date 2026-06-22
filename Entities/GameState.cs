@@ -19,7 +19,7 @@ class GameState
             new StatBar("Authority", 50, 100)
         };
 
-        _currentCard = new Card("Tutorial Card", Raylib.LoadImage("Assets/the_jester.webp"), "Bonjour",
+        _currentCard = new Card("Tutorial Card", Raylib.LoadTexture("Assets/the_jester.png"), "Bonjour",
            new int[]
         {
             0, 0, 0, 0,

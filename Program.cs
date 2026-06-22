@@ -21,6 +21,7 @@ internal static class Program
             Raylib.EndDrawing();
         }
 
+
         Raylib.CloseWindow();
     }
 }

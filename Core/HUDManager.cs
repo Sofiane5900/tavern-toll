@@ -1,8 +1,11 @@
+using System.Diagnostics.Metrics;
 using System.Numerics;
 using Raylib_cs;
 
 class HUDManager
 {
+
+    const int fontSize = 20;
 
     public void DisplayBars(GameState gameState, int screenWidth)
     {
@@ -14,7 +17,7 @@ class HUDManager
         {
             string name = gameState.Bars[i].Name;
             int stats = gameState.Bars[i].CurrentStat;
-            totalBars[i] = Raylib.MeasureText($"{name}: \n{stats}", 20);
+            totalBars[i] = Raylib.MeasureText($"{name}: \n{stats}", fontSize);
             totalWidth += totalBars[i];
         }
         // 4 Bars in total (we don't need space after the last one)
@@ -27,7 +30,7 @@ class HUDManager
         {
             string name = gameState.Bars[i].Name;
             int stats = gameState.Bars[i].CurrentStat;
-            Raylib.DrawText($"{name}: \n{stats}", cursor, Y, 20, Color.White);
+            Raylib.DrawText($"{name}: \n{stats}", cursor, Y, fontSize, Color.White);
 
             // only if we aren't to the last element, keep incrementing cursor
             if (i < totalBars.Count() - 1) cursor += totalBars[i] + spaceInBetween;
@@ -50,8 +53,18 @@ class HUDManager
         Vector2 cardCenter = new(screen.Width / 2,
        screen.Height / 2);
 
+        // Render first card image
         Raylib.DrawTexturePro(gameState.CurrentCard.Avatar, cardRectangle, screen,
         cardCenter, 0, Color.White);
+
+        int nameWidth = Raylib.MeasureText(gameState.CurrentCard.Name, fontSize);
+        // X Position of name is center of image - half of the text k)
+        int nameX = (int)screen.X - (nameWidth / 2);
+        // Y Position of Name is Y center of image  + image height in pixels 
+        //  - 100 (to bring text closer)
+        int nameY = (int)screen.Y + (int)screen.Height - 100;
+        Raylib.DrawText(gameState.CurrentCard.Name, nameX, nameY, fontSize, Color.White);
+
     }
 
 

@@ -37,8 +37,7 @@ internal static class Program
         {
             // Render HUD to framebuffer
             Raylib.BeginTextureMode(playableScreen);
-            hudManager.DisplayBars(gameState, playableScreenWidth);
-            hudManager.DisplayCard(gameState, playableScreenWidth, playableScreenHeight);
+            hudManager.DisplayHUD(gameState, playableScreenWidth, playableScreenHeight);
             Raylib.DrawRectangleLines(0, 0, playableScreenWidth, playableScreenHeight,
 Color.Black);
             Raylib.EndTextureMode();

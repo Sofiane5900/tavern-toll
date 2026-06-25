@@ -48,4 +48,5 @@ class CardManager
         int nameY = (int)screen.Y + (int)screen.Height - 100;
         Raylib.DrawText(gameState.CurrentCard.Name, nameX, nameY, UIConstant.DefaultFontSize, Color.White);
     }
+
 }

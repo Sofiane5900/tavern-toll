@@ -5,12 +5,12 @@ using Raylib_cs;
 class HUDManager
 {
 
-    private readonly CardManager cardManager = new();
-    private readonly StatBarManager statBarManager = new();
+    private readonly CardManager _cardManager = new();
+    private readonly StatBarManager _statBarManager = new();
     public void DisplayHUD(GameState gameState, int screenWidth, int screenHeight)
     {
-        cardManager.DisplayCard(gameState, screenWidth, screenHeight);
-        statBarManager.DisplayBars(gameState, screenWidth);
+        _cardManager.DisplayCard(gameState, screenWidth, screenHeight);
+        _statBarManager.DisplayBars(gameState, screenWidth);
     }
 
 }

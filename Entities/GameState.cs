@@ -19,14 +19,10 @@ class GameState
             new StatBar("Authority", 50, 100)
         };
 
-        _currentCard = new Card("The Lady", Raylib.LoadTexture("Assets/the_lady.png"), "Bonjour, je suis une carte. Voilà tout...",
-           new int[]
-        {
-            0, 0, 0, 0,
-        }, new int[]
-        {
-            0, 0, 0, 0
-        });
+        Choice choice = new();
+        _currentCard = new Card("The Lady", Raylib.LoadTexture("Assets/the_lady.png"),
+        "Bonjour, je suis une carte. Voilà tout...",
+
 
         _day = 1;
 

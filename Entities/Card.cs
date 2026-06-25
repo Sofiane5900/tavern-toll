@@ -5,19 +5,19 @@ class Card
     private string _name;
     private Texture2D _avatar;
     private string _dialogue = string.Empty;
-    private int[] _leftImpacts = new int[4];
-    private int[] _rightImpacts = new int[4];
+    private Choice _leftChoice;
+    private Choice _rightChoice;
 
 
-    public Card(string name, Texture2D avatar, string dialogue, int[] leftImpacts,
-    int[] rightImpacts)
+
+    public Card(string name, Texture2D avatar, string dialogue, Choice choice, Choice leftChoice,
+     Choice rightChoice)
     {
         _name = name;
         _avatar = avatar;
         Dialogue = dialogue;
-        LeftImpacts = leftImpacts;
-        RightImpacts = rightImpacts;
-
+        LeftChoice = leftChoice;
+        RightChoice = rightChoice;
     }
 
     public string Name => _name;
@@ -30,16 +30,14 @@ class Card
         set => _dialogue = value;
     }
 
-    public int[] LeftImpacts
+    public Choice LeftChoice
     {
-        get => _leftImpacts;
-        set => _leftImpacts = value;
+        get => _leftChoice;
+        set => _leftChoice = value;
     }
-
-    public int[] RightImpacts
+    public Choice RightChoice
     {
-        get => _rightImpacts;
-        set => _rightImpacts = value;
+        get => _rightChoice;
+        set => _rightChoice = value;
     }
-
 }

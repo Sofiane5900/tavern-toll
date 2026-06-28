@@ -1,6 +1,5 @@
 using Raylib_cs;
 using System.Numerics;
-using System.Runtime.CompilerServices;
 class CardManager
 {
 
@@ -9,6 +8,7 @@ class CardManager
      HUDUtils.CreateCenteredRectangle(250, 250, UIConstant.GameWidth, UIConstant.GameHeight);
     private Rectangle _cardScreen = new(UIConstant.GameWidth / 2, UIConstant.GameHeight / 2, 250, 250);
 
+    private float _cardRotation;
     private readonly SwipeService _swipeService = new();
 
     public void DisplayCard(GameState gameState)
@@ -28,7 +28,7 @@ class CardManager
 
         // ** Render first card image
         Raylib.DrawTexturePro(gameState.CurrentCard.Avatar, cardDest, _cardScreen,
-        cardOrigin, 0, Color.White);
+        cardOrigin, _cardRotation, Color.White);
 
 
         // ** Render dialogue 
@@ -52,9 +52,11 @@ class CardManager
 
     public void MoveCard()
     {
-        Vector2 newPos = _swipeService.CalculateCardPos(_cardScreen);
-        _cardScreen.X = newPos.X;
-        _cardScreen.Y = newPos.Y;
+        SwipeResult swipeResult = _swipeService.CalculateCardPos(_cardScreen);
+        _cardScreen.X = swipeResult.Position.X;
+        _cardScreen.Y = swipeResult.Position.Y;
+        _cardRotation = swipeResult.Rotation;
+
     }
 
 }

@@ -29,8 +29,14 @@ internal static class Program
 
         while (!Raylib.WindowShouldClose())
         {
-            // Render HUD to framebuffer
+            // 1. Charge card cordinates 
+            hudManager.UpdateCard(gameState);
+
+
+            // 2. Render HUD into Framebuffer
             Raylib.BeginTextureMode(playableScreen);
+            Raylib.ClearBackground(Color.Brown);
+
             hudManager.DrawHUD(gameState);
             Raylib.DrawRectangleLines(0, 0, UIConstant.GameWidth, UIConstant.GameHeight,
 Color.Black);
@@ -38,9 +44,8 @@ Color.Black);
 
             // Draw to the window 
             Raylib.BeginDrawing();
-            Raylib.ClearBackground(Color.Brown);
             Raylib.DrawTexturePro(playableScreen.Texture, source, dest, origin, 0, Color.White);
-            hudManager.UpdateHUD(gameState);
+            Raylib.ClearBackground(Color.Brown);
 
             Raylib.EndDrawing();
         }

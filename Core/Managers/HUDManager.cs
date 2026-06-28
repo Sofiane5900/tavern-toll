@@ -13,7 +13,7 @@ class HUDManager
         _statBarManager.DisplayBars(gameState, UIConstant.GameWidth);
     }
 
-    public void UpdateHUD(GameState gameState)
+    public void UpdateCard(GameState gameState)
     {
         _cardManager.MoveCard();
     }

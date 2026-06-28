@@ -10,7 +10,7 @@ class Card
 
 
 
-    public Card(string name, Texture2D avatar, string dialogue, Choice choice, Choice leftChoice,
+    public Card(string name, Texture2D avatar, string dialogue, Choice leftChoice,
      Choice rightChoice)
     {
         _name = name;

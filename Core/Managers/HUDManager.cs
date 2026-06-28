@@ -7,10 +7,14 @@ class HUDManager
 
     private readonly CardManager _cardManager = new();
     private readonly StatBarManager _statBarManager = new();
-    public void DisplayHUD(GameState gameState, int screenWidth, int screenHeight)
+    public void DrawHUD(GameState gameState)
     {
-        _cardManager.DisplayCard(gameState, screenWidth, screenHeight);
-        _statBarManager.DisplayBars(gameState, screenWidth);
+        _cardManager.DisplayCard(gameState);
+        _statBarManager.DisplayBars(gameState, UIConstant.GameWidth);
     }
 
+    public void UpdateHUD(GameState gameState)
+    {
+        _cardManager.MoveCard();
+    }
 }

@@ -7,12 +7,6 @@ internal static class Program
 {
 
 
-    const int totalScreenWidth = 1280;
-    const int totalScreenHeight = 720;
-
-
-    const int playableScreenWidth = 540;
-    const int playableScreenHeight = 960;
 
 
 
@@ -21,14 +15,14 @@ internal static class Program
     [System.STAThread]
     public static void Main()
     {
-        Raylib.InitWindow(totalScreenWidth, totalScreenHeight, "Tavern's Toll");
+        Raylib.InitWindow(UIConstant.WindowWidth, UIConstant.WindowHeight, "Tavern's Toll");
 
 
-        RenderTexture2D playableScreen = Raylib.LoadRenderTexture(playableScreenWidth, playableScreenHeight);
+        RenderTexture2D playableScreen = Raylib.LoadRenderTexture(UIConstant.GameWidth, UIConstant.GameHeight);
         // Variables to draw our playableScreen 
-        Rectangle source = new(0, 0, playableScreenWidth, -playableScreenHeight);
-        Vector2 origin = new(playableScreenWidth / 2, playableScreenHeight / 2);
-        Rectangle dest = new(totalScreenWidth / 2, totalScreenHeight / 2, playableScreenWidth, playableScreenHeight);
+        Rectangle source = new(0, 0, UIConstant.GameWidth, -UIConstant.GameHeight);
+        Vector2 origin = new(UIConstant.GameWidth / 2, UIConstant.GameHeight / 2);
+        Rectangle dest = new(UIConstant.WindowWidth / 2, UIConstant.WindowHeight / 2, UIConstant.GameWidth, UIConstant.GameHeight);
 
         GameState gameState = new();
         HUDManager hudManager = new();
@@ -37,8 +31,8 @@ internal static class Program
         {
             // Render HUD to framebuffer
             Raylib.BeginTextureMode(playableScreen);
-            hudManager.DisplayHUD(gameState, playableScreenWidth, playableScreenHeight);
-            Raylib.DrawRectangleLines(0, 0, playableScreenWidth, playableScreenHeight,
+            hudManager.DrawHUD(gameState);
+            Raylib.DrawRectangleLines(0, 0, UIConstant.GameWidth, UIConstant.GameHeight,
 Color.Black);
             Raylib.EndTextureMode();
 
@@ -46,7 +40,7 @@ Color.Black);
             Raylib.BeginDrawing();
             Raylib.ClearBackground(Color.Brown);
             Raylib.DrawTexturePro(playableScreen.Texture, source, dest, origin, 0, Color.White);
-
+            hudManager.UpdateHUD(gameState);
 
             Raylib.EndDrawing();
         }

@@ -19,9 +19,11 @@ class GameState
             new StatBar("Authority", 50, 100)
         };
 
-        Choice choice = new();
+        Choice leftChoice = new("Choix gauche?", Decision.Left, 10, 10, 0, 0);
+        Choice rightChoice = new("Choix Droite?", Decision.Right, 0, 0, 10, 10);
         _currentCard = new Card("The Lady", Raylib.LoadTexture("Assets/the_lady.png"),
         "Bonjour, je suis une carte. Voilà tout...",
+        leftChoice, rightChoice);
 
 
         _day = 1;

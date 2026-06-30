@@ -1,5 +1,6 @@
 enum Decision
 {
     Left,
-    Right
+    Right,
+    None
 }

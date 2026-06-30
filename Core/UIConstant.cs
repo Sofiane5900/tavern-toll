@@ -8,4 +8,7 @@ public static class UIConstant
 
     public const int GameWidth = 540;
     public const int GameHeight = 960;
+
+    public const int CardWidth = 250;
+    public const int CardHeight = 250;
 }

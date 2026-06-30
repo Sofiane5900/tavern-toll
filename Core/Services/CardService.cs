@@ -20,11 +20,17 @@ class CardService
         };
     }
 
+    public Choice GetChoice(GameState gameState, Decision? decision)
+    {
+        return decision == Decision.Left
+      ? gameState.CurrentCard.LeftChoice
+      : gameState.CurrentCard.RightChoice;
+    }
+
     public void ResolveChoice(GameState gameState, Decision decision)
     {
-        Choice choice = decision == Decision.Left
-            ? gameState.CurrentCard.LeftChoice
-            : gameState.CurrentCard.RightChoice;
+
+        Choice choice = GetChoice(gameState, decision);
 
         ApplyImpact(gameState, "Gold", choice.GoldImpact);
         ApplyImpact(gameState, "Stocks", choice.StockImpact);
